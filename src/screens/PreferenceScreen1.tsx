@@ -13,12 +13,11 @@ import font from '../../styles/font';
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {useState} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';  
-import {faAngleLeft} from '@fortawesome/free-solid-svg-icons';
 
-const Screen2 = () => {
+
+const Screen1 = () => {
   const navigation = useNavigation();
-  const [selectedIds, setSelectedIds] = useState<Record<number, boolean>>({}); 
+  const [selectedIds, setSelectedIds] = useState<Record<number, boolean>>({});
   const data = [
     {
       id: 1,
@@ -99,7 +98,6 @@ const Screen2 = () => {
           width: '200%',
           left: '-50%',
           height: '50%',
-          flexDirection: 'row',
           marginTop: -250,
           alignItems: 'center',
           justifyContent: 'center',
@@ -107,36 +105,16 @@ const Screen2 = () => {
           borderBottomStartRadius: 500,
           borderBottomEndRadius: 500,
         }}>
-        <View
+         
+        <Text
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 10,
+            fontSize: 24,
+            fontFamily: font.bold,
+            color: '#315CAC',
             marginTop: 240,
-            marginRight: 90,
           }}>
-          <TouchableOpacity
-            onPress={() => {
-              console.log('Back');
-              navigation.goBack();
-            }}>
-            <FontAwesomeIcon
-              icon={faAngleLeft}
-              size={28}
-              color="#315CAC"
-              style={{marginRight: 50}}
-            />
-          </TouchableOpacity>
-          <Text
-            style={{
-              fontSize: 24,
-              fontFamily: font.bold,
-              color: '#315CAC',
-            }}>
-            PREFERENCES
-          </Text>
-        </View>
+          PREFERENCES
+        </Text>
       </View>
       <View
         style={{
@@ -146,7 +124,7 @@ const Screen2 = () => {
           marginTop: 70,
           gap: 10,
         }}>
-        <Image   
+        <Image
           style={{width: 145, height: 105}}
           source={require('../assets/images/imgpreferences.png')}
         />
@@ -162,7 +140,7 @@ const Screen2 = () => {
           style={{
             fontSize: 16,
             fontFamily: font.bold,
-            color: '#315CAC', 
+            color: '#315CAC',
             textAlign: 'center',
             maxWidth: 333,
           }}>
@@ -188,7 +166,7 @@ const Screen2 = () => {
           //   console.log('I dont know');
           //   navigation.navigate("Screen2" as never); // as never là cách để bỏ qua kiểm tra kiểu dữ liệu khi truyền vào hàm navigate
           // }}
-
+          
           style={{
             backgroundColor: '#4FA5C1',
             borderRadius: 20,
@@ -210,17 +188,18 @@ const Screen2 = () => {
           </Text>
         </Pressable>
         <Pressable
-          onPress={() => {
-            console.log('I dont know');
-            navigation.navigate('Screen2' as never); // as never là cách để bỏ qua kiểm tra kiểu dữ liệu khi truyền vào hàm navigate
-          }}
+        onPress={() => {
+          console.log('Next');
+          navigation.navigate("Screen2" as never); // as never là cách để bỏ qua kiểm tra kiểu dữ liệu khi truyền vào hàm navigate
+        }}
+
           style={{
             backgroundColor: '#315CAC',
             borderRadius: 5,
             width: 274,
             height: 44,
             justifyContent: 'center',
-            marginTop: 50,
+            marginTop:50,
             marginBottom: 20,
           }}>
           <Text
@@ -251,6 +230,6 @@ const Screen2 = () => {
   );
 };
 
-export default Screen2;
+export default Screen1;
 
 const styles = StyleSheet.create({});
